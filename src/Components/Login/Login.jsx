@@ -66,7 +66,7 @@ let formik = useFormik ({
       <title>Login</title>
   </Helmet>
 
-    {ApiError ?<div className="w-1/2 mx-auto text-white bg-red-600 rounded-lg p-4">
+    {ApiError ?<div className="w-1/2 mx-auto text-white bg-red-600 rounded-lg p-4 mt-2">
     {ApiError}
     </div>:null}
   <h2 className='color-title py-10 mt-14 md:py-5 md:mb-4  font-bold text-2xl text-center'>Login Now!</h2>

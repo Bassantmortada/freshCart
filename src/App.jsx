@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
 import Cart from './Components/Cart/Cart';
@@ -30,8 +30,8 @@ import NewPassword from './Components/NewPassword/NewPassword';
 
 let query = new QueryClient()
 
-let x = createBrowserRouter([
-  {path: "" , element: <Layout/> , children:[
+let x = createHashRouter([
+  {path: "/" , element: <Layout/> , children:[
     {index: true , element: <ProtectedRoute> <Home/> </ProtectedRoute> },
     {path: "cart" , element: <ProtectedRoute> <Cart/> </ProtectedRoute> },
     {path: "brands" , element: <ProtectedRoute> <Brands/> </ProtectedRoute> },

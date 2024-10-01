@@ -37,9 +37,11 @@ export default function NewPassword() {
   // validation for Yup
   let validationSchema = Yup.object().shape({
     email: Yup.string().email("invalid email").required("email is required"),
-    newPassword: Yup.string().matches(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/, 
-      "Password must contain one uppercase letter, and one underscore, and it must be 8-16 characters long.")
-      .required("password is required"),
+    // newPassword: Yup.string().matches(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/, 
+    //   "Password must contain one uppercase letter, and one underscore, and it must be 8-16 characters long.")
+    //   .required("password is required"),
+    newPassword: Yup.string().matches(/^[A-Za-z0-9]{6,10}$/ , "password should be between 6 and 10char")
+    .required("password is required"),
   })
 
 let formik = useFormik ({
@@ -59,7 +61,7 @@ let formik = useFormik ({
 </Helmet>
 
   <div className="">
-    {ApiError ?<div className="w-1/2 mx-auto text-white bg-red-600 rounded-lg p-4">
+    {ApiError ?<div className="w-1/2 mx-auto text-white bg-red-600 rounded-lg p-4 mt-2">
     {ApiError}
     </div>:null}
   <h2 className='py-5 mb-5 font-bold text-2xl text-emerald-600 text-center'>Reset New Password</h2>
